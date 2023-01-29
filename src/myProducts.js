@@ -30,3 +30,12 @@ const items = [
     price: 899.99,
   },
 ];
+
+function getProductInfo(id) {
+  let productInfo = myProducts.find((product) => product.id === id);
+  if ((productInfo = undefined)) {
+    console.log("No Such Product Exsist For ID: " + id);
+  }
+}
+
+export { myProducts };
