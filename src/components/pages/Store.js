@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import myProducts from "../../myProducts";
 
 function Store() {
   return (

@@ -39,4 +39,4 @@ function getProductInfo(id) {
   return productInfo;
 }
 
-export { myProducts };
+export { items, getProductInfo };
