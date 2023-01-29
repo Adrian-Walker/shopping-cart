@@ -36,6 +36,7 @@ function getProductInfo(id) {
   if ((productInfo = undefined)) {
     console.log("No Such Product Exsist For ID: " + id);
   }
+  return productInfo;
 }
 
 export { myProducts };
