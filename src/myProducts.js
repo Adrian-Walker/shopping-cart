@@ -19,4 +19,14 @@ const items = [
     name: "Bluetooth Speaker",
     price: 299.99,
   },
+  {
+    id: 5,
+    name: "Bluetooth Mouse",
+    price: 89.99,
+  },
+  {
+    id: 6,
+    name: "Playstation 5",
+    price: 899.99,
+  },
 ];
