@@ -1,7 +1,7 @@
 const items = [
   {
     id: 1,
-    name: "Tv",
+    name: "TV",
     price: 1199.99,
   },
   {
@@ -32,7 +32,7 @@ const items = [
 ];
 
 function getProductInfo(id) {
-  let productInfo = myProducts.find((product) => product.id === id);
+  let productInfo = items.find((product) => product.id === id);
   if ((productInfo = undefined)) {
     console.log("No Such Product Exsist For ID: " + id);
   }
