@@ -11,8 +11,42 @@ const CartContext = createContext({
 });
 
 export function CartProvider({ children }) {
+  const [cartItems, setCartItems] = useState([]);
+
+  function getItemQuantity(id) {
+    const quantity = cartItems.find((item) => item.id === id)?.quantity;
+
+    if (quantity === undefined) {
+      return 0;
+    }
+
+    return quantity;
+  }
+
+  function addOneToCart(id) {
+    const quantity = getProductQuantity(id);
+
+    if (quantity === 0) {
+      setCartItems([
+        ...cartItems,
+        {
+          id: id,
+          quantity: 1,
+        },
+      ]);
+    } else {
+      setCartItems(
+        cartItems.map((product) =>
+          product.id === id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product
+        )
+      );
+    }
+  }
+
   const contextValue = {
-    items: [],
+    items: cartItems,
     getProductQuantity,
     addOneToCart,
     removeOneFromCart,
