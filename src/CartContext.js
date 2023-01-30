@@ -23,6 +23,7 @@ export function CartProvider({ children }) {
     return quantity;
   }
 
+  // Add item to cart
   function addOneToCart(id) {
     const quantity = getProductQuantity(id);
 
@@ -43,6 +44,14 @@ export function CartProvider({ children }) {
         )
       );
     }
+  }
+
+  function deleteFromCart(id) {
+    setCartItems((cartItems) =>
+      cartItems.filter((currentItem) => {
+        return currentItem.id != id;
+      })
+    );
   }
 
   const contextValue = {
