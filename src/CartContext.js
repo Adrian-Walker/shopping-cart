@@ -46,6 +46,24 @@ export function CartProvider({ children }) {
     }
   }
 
+  //Remove item from cart
+  function removeOneFromCart(id) {
+    const quantity = getProductQuantity(id);
+
+    if (quantity === 1) {
+      deleteFromCart(id);
+    } else {
+      setCartItems(
+        cartItems.map((product) =>
+          product.id === id
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
+        )
+      );
+    }
+  }
+
+  //Delete item from cart
   function deleteFromCart(id) {
     setCartItems((cartItems) =>
       cartItems.filter((currentItem) => {
