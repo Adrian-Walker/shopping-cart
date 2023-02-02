@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import { items, getProductInfo } from "./myProducts";
 
-const CartContext = createContext({
+export const CartContext = createContext({
   items: [],
   getItemQuantity: () => {},
   addOneToCart: () => {},
@@ -25,7 +25,7 @@ export function CartProvider({ children }) {
 
   // Add item to cart
   function addOneToCart(id) {
-    const quantity = getProductQuantity(id);
+    const quantity = getItemQuantity(id);
 
     if (quantity === 0) {
       setCartItems([
@@ -48,7 +48,7 @@ export function CartProvider({ children }) {
 
   //Remove item from cart
   function removeOneFromCart(id) {
-    const quantity = getProductQuantity(id);
+    const quantity = getItemQuantity(id);
 
     if (quantity === 1) {
       deleteFromCart(id);
@@ -77,7 +77,7 @@ export function CartProvider({ children }) {
     let totalCost = 0;
     cartItems.map((item) => {
       const productData = getProductInfo(item.id);
-      totalCost + -(productData.price * item.quantity);
+      totalCost +=(productData.price * item.quantity);
     });
     return totalCost;
   }
