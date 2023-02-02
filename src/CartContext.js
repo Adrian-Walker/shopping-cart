@@ -3,7 +3,7 @@ import { items, getProductInfo } from "./myProducts";
 
 const CartContext = createContext({
   items: [],
-  getProductQuantity: () => {},
+  getItemQuantity: () => {},
   addOneToCart: () => {},
   removeOneFromCart: () => {},
   deleteFromCart: () => {},
@@ -84,10 +84,16 @@ export function CartProvider({ children }) {
 
   const contextValue = {
     items: cartItems,
-    getProductQuantity,
+    getItemQuantity,
     addOneToCart,
     removeOneFromCart,
     deleteFromCart,
     getTotalCost,
   };
+
+  return (
+    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
+  );
 }
+
+export default CartProvider;
