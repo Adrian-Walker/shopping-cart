@@ -33,9 +33,11 @@ const items = [
 
 function getProductInfo(id) {
   let productInfo = items.find((product) => product.id === id);
-  if ((productInfo = undefined)) {
+  if ((productInfo == undefined)) {
     console.log("No Such Product Exsist For ID: " + id);
+    return undefined;
   }
+
   return productInfo;
 }
 

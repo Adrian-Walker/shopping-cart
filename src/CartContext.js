@@ -14,7 +14,7 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
   function getItemQuantity(id) {
-    const quantity = cartItems.find((item) => item.id === id)?.quantity;
+    const quantity = cartItems.find(item => item.id === id)?.quantity;
 
     if (quantity === undefined) {
       return 0;
@@ -72,12 +72,12 @@ export function CartProvider({ children }) {
     );
   }
 
-  //Get total cost fo all items
+  //Get total cost for all items
   function getTotalCost() {
     let totalCost = 0;
     cartItems.map((item) => {
       const productData = getProductInfo(item.id);
-      totalCost +=(productData.price * item.quantity);
+      totalCost += productData.price * item.quantity;
     });
     return totalCost;
   }
