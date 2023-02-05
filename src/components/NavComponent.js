@@ -41,7 +41,7 @@ function NavComponent() {
                   quantity={currentProduct.quantity}
                 ></CartProduct>
               ))}
-              {/* <h1>Total: {cart.getTotalCost().toFixed(2)}</h1> */}
+              <h1>Total: {cart.getTotalCost().toFixed(2)}</h1>
               <Button variant="success">Purchase Items!</Button>
             </>
           ) : (
